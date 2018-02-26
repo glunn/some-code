@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="utf-8">
+    <title>Abigail Glunn</title>
+
+    <style>
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #F1E1DB;
+      }
+
+      .text-active {
+        font-family: Helvetica;
+        font-size: 22px;
+        display: inline-block;
+        position: absolute !important;
+        background-color: #616161;
+        color: #e2e9ea;
+        margin-top: 100px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 5px 5px 5px 5px;
+        z-index: 99 !important;
+      }
+
+      .text-static {
+        font-family: Helvetica;
+        font-size: 22px;
+        display: block;
+        position: absolute !important;
+        background-color: #616161;
+        color: #e2e9ea;
+        margin-top: 170px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 5px 5px 5px 5px;
+        z-index: 99 !important;
+      }
+
+      .typed-cursor {
+        margin-left: -5px;
+        background-color: #616161;
+        display: inline;
+        position: absolute;
+        color: #e2e9ea;
+        z-index: 5;
+          font-size: 22px;
+          opacity: 1;
+          -webkit-animation: blink 0.7s infinite;
+          -moz-animation: blink 0.7s infinite;
+          animation: blink 0.7s infinite;
+      }
+      @keyframes blink {
+      0% {
+          opacity: 1;
+      }
+      50% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+
+    #mountain1-trigger, #mountain2-trigger, #mountain3-trigger, #mountain4-trigger, #mountain5-trigger, #mountain6-trigger {
+      display: block;
+        margin: 0;
+        outline: 1px dashed orange;
+        width: 100%;
+      }
+
+      #below-pin, #below-trigger {
+          background-color: #616161;
+          display: block;
+          width: 100% !important;
+          height: 100%;
+        }
+
+      @media screen and (min-width: 900px) {
+        #wrapper {
+              overflow-x: hidden;
+        }
+        #text-pin {
+            display: block;
+            width: 100% !important;
+            height: auto;
+            font-family: Helvetica;
+            position: relative;
+            z-index: 200;
+          }
+        #mountain1-pin {
+            display: block;
+            width: 100% !important;
+            height: auto;
+            font-family: Helvetica;
+            position: relative;
+            z-index: 2;
+          }
+
+          #mountain2-pin {
+              display: block;
+              margin-top: -125vh;
+              width: 100% !important;
+              height: auto;
+              font-family: Helvetica;
+              position: relative;
+              z-index: 2;
+            }
+
+        #mountain3-pin, #mountain4-pin, #mountain5-pin, #mountain6-pin  {
+            display: block;
+            margin-top: -95vh;
+            width: 100% !important;
+            height: auto;
+            font-family: Helvetica;
+            position: relative;
+            z-index: 2;
+          }
+
+          #test {
+                  width: 100% !important;
+                }
+        }
+      @media screen and (max-width: 899px) {
+        #text-pin {
+            display: block;
+            width: 100% !important;
+            height: auto;
+            font-family: Helvetica;
+            position: relative;
+            z-index: 200;
+          }
+        #mountain1-pin {
+            display: block;
+            width: auto;
+            height: 100vh;
+            border: 1px solid black;
+            font-family: Helvetica;
+            overflow-x: hidden;
+          }
+          #mountain2-pin, #mountain3-pin, #mountain4-pin, #mountain5-pin, #mountain6-pin  {
+              display: block;
+              margin-top: -60vh;
+              width: auto;
+              height: 100vh !important;
+              border: 1px solid black;
+              font-family: Helvetica;
+              overflow-x: hidden;
+            }
+
+          #test {
+              height: 100vh !important;
+              overflow-x: hidden;
+          }
+      }
+
+      #fadein-trigger > div {
+          height: 400px;
+          opacity: 0; // hide init
+        }
+
+      #location {
+        margin: 50px;
+      }
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+
+    <script src= "http://www.abigailglunn.com/js/typeit.min.js"></script>
+    <script src= "http://www.abigailglunn.com/js/velocity.js"></script>
+
+
+
+</head>
+
+
+<body>
+
+  <div id="text-trigger">
+      <div id="text-pin">
+        <div class="text-active">
+            <span>Hey there! I build</span><span id="typed-array"></span>
+        </div>
+        <div class="text-static">
+          <span>Why can't I see this?</span>
+        </div>
+        <div class="text-static">
+          <span>This is ugly. I don't even want to scroll down to see the rest of the site.</span>
+          <button id="button-change">Change it</button>
+        </div>
+        </div>
+      </div>
+  </div>
+
+  <div id="mountain1-trigger">
+      <div id="mountain1-pin">
+          <img id="test" src="img/mtn1.png">
+      </div>
+  </div>
+
+
+  <div id="mountain2-trigger">
+      <div id="mountain2-pin">
+          <img id="test" src="img/mtn2.png">
+      </div>
+  </div>
+
+  <div id="mountain3-trigger">
+      <div id="mountain3-pin">
+          <img id="test" src="img/mtn3.png">
+      </div>
+  </div>
+
+  <div id="mountain4-trigger">
+      <div id="mountain4-pin">
+          <img id="test" src="img/mtn4.png">
+      </div>
+  </div>
+
+  <div id="mountain5-trigger">
+      <div id="mountain5-pin">
+          <img id="test" src="img/mtn5.png">
+      </div>
+  </div>
+
+  <div id="mountain6-trigger">
+      <div id="mountain6-pin">
+          <img id="test" src="img/mtn6.png">
+      </div>
+  </div>
+
+  <div id="below-trigger">
+      <div id="below-pin">
+        <div class="text-static">
+          <span>Something below this</span>
+          <div id="fadein-trigger">
+          <img id="location" src="img/Media_Location.svg.png">
+        </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- <div id="tree-line-trigger">
+      <div id="tree-line-pin">
+          Hi there !
+          <img id="test" src="img/mtn_base.png">
+      </div>
+  </div> -->
+  <script>
+    // Our code goes here
+    $(function() {
+        // var controller = new ScrollMagic.Controller();
+        // var containerScene = new ScrollMagic.Scene({
+        //     triggerElement: '#tree-line-trigger',
+        //     triggerHook: 'onLeave',
+        //     duration: 1000
+        // })
+        // .setPin('#tree-line-pin')
+        // .addIndicators()
+        // .addTo(controller);
+
+        var controller1 = new ScrollMagic.Controller();
+        var mountainScene = new ScrollMagic.Scene({
+            triggerElement: '#mountain1-trigger',
+            triggerHook: 'onLeave',
+            duration: '233%'
+        })
+        .setPin('#mountain1-pin', {pushFollowers: false})
+        .addIndicators()
+        .addTo(controller1);
+
+        var controller2 = new ScrollMagic.Controller();
+        var mountainScene = new ScrollMagic.Scene({
+            triggerElement: '#mountain2-trigger',
+            triggerHook: 'onLeave',
+            duration: '222%'
+        })
+        .setPin('#mountain2-pin', {pushFollowers: false})
+        .addIndicators()
+        .addTo(controller2);
+
+        var controller3 = new ScrollMagic.Controller();
+        var mountainScene = new ScrollMagic.Scene({
+            triggerElement: '#mountain3-trigger',
+            triggerHook: 'onLeave',
+            duration: '214%'
+        })
+        .setPin('#mountain3-pin', {pushFollowers: false})
+        .addIndicators()
+        .addTo(controller3);
+
+        var controller4 = new ScrollMagic.Controller();
+        var mountainScene = new ScrollMagic.Scene({
+            triggerElement: '#mountain4-trigger',
+            triggerHook: 'onLeave',
+            duration: '160%'
+        })
+        .setPin('#mountain4-pin', {pushFollowers: false})
+        .addIndicators()
+        .addTo(controller4);
+
+        var controller5 = new ScrollMagic.Controller();
+        var mountainScene = new ScrollMagic.Scene({
+            triggerElement: '#mountain5-trigger',
+            triggerHook: 'onLeave',
+            duration: '130%'
+        })
+        .setPin('#mountain5-pin', {pushFollowers: false})
+        .addIndicators()
+        .addTo(controller5);
+
+        var controller6 = new ScrollMagic.Controller();
+        var mountainScene = new ScrollMagic.Scene({
+            triggerElement: '#mountain6-trigger',
+            triggerHook: 'onLeave',
+            duration: '100%'
+        })
+        .setPin('#mountain6-pin', {pushFollowers: false})
+        .addIndicators()
+        .addTo(controller6);
+
+        var controllerText = new ScrollMagic.Controller();
+        var textScene = new ScrollMagic.Scene({
+            triggerElement: '#text-trigger',
+            triggerHook: 'onLeave',
+            duration: '305%'
+        })
+        .setPin('#text-pin', {pushFollowers: false})
+        .addIndicators()
+        .addTo(controllerText);
+
+
+
+
+        var fadein_tween = TweenMax.to('#fadein-trigger > div', .375,{ opacity: 1 });
+        var fadeout_tween = TweenMax.to('#fadein-trigger > div', .375,{ opacity: 0 });
+
+        var controllerBelow = new ScrollMagic.Controller();
+        var belowScene = new ScrollMagic.Scene({
+            triggerElement: '#below-trigger',
+            reverse: true
+            //duration: '300%'
+        })
+        .setPin('#below-pin', {pushFollowers: false})
+        .setTween(fadein_tween)
+        .addIndicators()
+        .addTo(controllerBelow);
+
+
+        $('#typed-array').typeIt({
+             strings: ["React components.", "web forms.", "SQL queries.", "automated Selenium tests.", "RESTful APIs", "maps with Leaflet and Mapbox.", "landing pages."],
+             speed: 180,
+             loop: true,
+             breakLines: false,
+             autoStart: false
+        });
+
+
+        $("#button-change").click( function()
+           {
+            //  alert('button clicked');
+             $(".text-static").css({"font-size": "30px", "color": "white"});
+           }
+        );
+
+    });
+    </script>
+
+</body>
+</html>
